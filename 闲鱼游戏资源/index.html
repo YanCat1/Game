@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content{
+            width:100%;
+            height:100%;
+            
+            border:1px solid red;
+        }
+        div{
+            width:260px;
+            height:100px;
+            border:1px solid gray;
+            margin-bottom:50px;
+        }
+        input{
+            margin:20px 0px 0px 10px;
+        }
+        button{
+            margin:20px 0px 0px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div>
+            <input type="text" id="copy" placeholder="此处填写内容" value="https://pan.baidu.com/s/145EeQKbXDDUbwdCLBQOpeA?pwd=7q9f">
+            <button data-copytarget="#copy">小动物自走棋</button>
+        </div>
+        <div>
+            <input type="text" id="copy1" placeholder="此处填写内容" value="https://pan.baidu.com/s/1APtFc32fVfrB9iye1eEoXA?pwd=guke">
+            <button data-copytarget="#copy1">土豆兄弟</button>
+        </div>
+        <div>
+            <input type="text" id="copy2" placeholder="此处填写内容" value="https://pan.baidu.com/s/18gaiqci6A3ivnEHPE9LFGw?pwd=fu8o">
+            <button data-copytarget="#copy2">开箱 Unpacking</button>
+        </div>
+        <div>
+            <input type="text" id="copy3" placeholder="此处填写内容" value="https://pan.baidu.com/s/1Itg-us_Q0XhwtCstP2lDnw?pwd=zs8r">
+            <button data-copytarget="#copy3">棋奕无限</button>
+        </div>
+        <!-- 下方添加内容 -->
+
+
+
+
+    </div>
+    
+    
+
+
+
+    
+<script>
+    (function name(params) {
+        'use strict';
+
+        //添加点击事件
+        document.body.addEventListener('click', copy, true);
+
+        //copy事件
+        function copy(e) {
+            //找到要复制的区域
+            var
+                t = e.target,
+                c = t.dataset.copytarget,
+                inp = (c ? document.querySelector(c) : null);
+            //要复制的区域是否可以选中
+            if (inp && inp.select) {
+                //选中
+                inp.select();
+                alert('已复制')
+                try {
+                    //执行复制
+                    document.execCommand('copy');
+                } catch (error) {
+                    alert('请使用Ctrl+c进行复制');
+                }
+            }
+        }
+    })();
+
+ 
+</script>
+
+</body>
+</html>
